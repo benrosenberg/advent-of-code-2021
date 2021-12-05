@@ -1,4 +1,4 @@
-from functools import reduce
+from itertools import chain
 
 with open('data.txt') as f:
     drawing = [int(x) for x in f.readline()[:-1].split(',')]
@@ -19,8 +19,8 @@ while sum(won) < len(boards):
     diff = [k for k,(w,t) in enumerate(zip(temp,won)) if w-t]
     if sum(won) == 1 and flag < 1: winner = diff[0]; flag = i
 
-winning_sum = sum(j for j in reduce(lambda x,y: x+y, boards[winner]) if j not in drawing[:flag])
-losing_sum = sum(j for j in reduce(lambda x,y: x+y, boards[diff[0]]) if j not in drawing[:i])
+winning_sum = sum(j for j in chain(*boards[winner]) if j not in drawing[:flag])
+losing_sum = sum(j for j in chain(*boards[diff[0]]) if j not in drawing[:i])
 
 print(f'(a) last called * winning sum \t= {drawing[flag-1] * winning_sum}')
 print(f'(b) last called * losing sum \t= {drawing[i-1] * losing_sum}')
