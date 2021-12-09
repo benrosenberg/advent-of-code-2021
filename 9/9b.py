@@ -1,5 +1,3 @@
-from functools import reduce
-
 with open('data.txt') as f:
     data = [line.rstrip('\n') for line in f.readlines()]
 
