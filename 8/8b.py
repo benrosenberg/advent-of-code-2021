@@ -119,7 +119,7 @@ def convert(line):
     return int(digits)
 
 # print(data)
-print(convert(['acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab', 'cdfeb fcadb cdfeb cdbaf']))
+# print(convert(['acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab', 'cdfeb fcadb cdfeb cdbaf']))
 # print(convert(data[0]))
 
 print(sum(convert(line) for line in data))
